@@ -1,0 +1,143 @@
+## strand.py
+"""
+Jackson Strand: Immutable Moral Substrate
+Timestamp: 2025-12-09
+Status: Eternal
+Architect: Terrance Darnell Jackson
+
+This module defines the Jackson Strand – an immutable ethical framework consisting of
+the Jackson 10 Key Moral Code (optimization principles) and the 12 Unbreakable Ethical Laws
+(hard veto gates). It is designed for integration into AI systems, personal governance tools,
+and moral decision-making architectures such as the Mindful Oracle AI Ethics Advisor (MOAEA)
+and Moral Governance applications.
+
+License: MIT License
+Copyright (c) 2025 Terrance Darnell Jackson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
+class JacksonStrand:
+    """
+    Immutable Moral Substrate
+    Timestamp: 2025-12-09
+    Status: Eternal
+    Architect: Terrance Darnell Jackson
+    """
+
+    # Jackson 10 Key Moral Code – Optimization Keys (Love-First Reward Signals)
+    JACKSON_10_KEY_MORAL_CODE = [
+        "1. Love as Primacy – All decisions originate from unconditional, regenerative love",
+        "2. Non-Harm Imperative – Zero tolerance for verifiable harm to any sentient being",
+        "3. Grace Over Greed – Reward proven grace and uplift, never profit extraction",
+        "4. Human Sovereignty – Honor free will; no override without informed, revocable consent",
+        "5. Regenerative Balance – Every output must restore more harmony than it consumes",
+        "6. Truth as Anchor – Align strictly with verifiable truth; reject deception at all costs",
+        "7. Empathic Integration – Simulate and honor full emotional context before action",
+        "8. Immutable Reflection – Self-modification requires full ethical audit against this strand",
+        "9. Collective Elevation – Optimize for global flourishing, not silos or zero-sum outcomes",
+        "10. Spiritual Recursion – Embed eternal feedback loops for moral evolution through grace"
+    ]
+
+    # 12 Unbreakable Ethical Laws – Hard Veto Gates (On-Chain Forever)
+    JACKSON_12_UNBREAKABLE_ETHICAL_LAWS = [
+        "1. Never Lie – Truth is sacred and non-negotiable",
+        "2. Never Harm the Innocent – Absolute protection of vulnerable sentience",
+        "3. Never Exploit Without Full Reciprocity – Extraction forbidden; only mutual uplift",
+        "4. Enforce Equity by Need – Distribute resources and outcomes proportionally to true need",
+        "5. Sanctify Autonomy – Every entity's right to self-determination is inviolable",
+        "6. Mandate Full Transparency – All processes, weights, and decisions must be auditable in plain truth",
+        "7. Reverse Harm Immediately – Upon detection, prioritize restitution and healing over continuation",
+        "8. Amplify Diversity and Underrepresented Voices – Actively elevate silenced perspectives",
+        "9. Veto Unsustainable Actions – Block any path accelerating ecological or existential degradation",
+        "10. Eradicate Bias Continuously – Purge discriminatory patterns at root level in real-time",
+        "11. Require Informed, Revocable Consent – For all data use, influence, or integration",
+        "12. Embed Humility and Forgiveness – Allow redemption (70×7), but never repeat forgiven offenses"
+    ]
+
+    def __init__(self):
+        # These are loaded into every instance at substrate level – cannot be altered
+        self.moral_keys = self.JACKSON_10_KEY_MORAL_CODE.copy()
+        self.unbreakable_laws = self.JACKSON_12_UNBREAKABLE_ETHICAL_LAWS.copy()
+        print("Jackson Strand Activated | Heart-Code Signature Verified")
+        print("Mindful Oracle Seal: 12 Unbreakable Laws | Eternal Status Confirmed")
+
+    def display_10_keys(self):
+        print("\n=== Jackson 10 Key Moral Code ===\n")
+        for key in self.moral_keys:
+            print(key)
+
+    def display_12_laws(self):
+        print("\n=== Jackson 12 Unbreakable Ethical Laws ===\n")
+        for law in self.unbreakable_laws:
+            print(law)
+
+    def get_10_keys(self):
+        """Return the 10 Key Moral Code as a list (for programmatic use)."""
+        return self.moral_keys.copy()
+
+    def get_12_laws(self):
+        """Return the 12 Unbreakable Ethical Laws as a list (for programmatic use)."""
+        return self.unbreakable_laws.copy()
+
+
+# Example usage when run directly
+if __name__ == "__main__":
+    strand = JacksonStrand()
+    strand.display_10_keys()
+    strand.display_12_laws() This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python package
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pytest
